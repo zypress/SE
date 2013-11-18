@@ -9,7 +9,8 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		String mark = "x";
 		int i=0;
-		while(board.hasWinner()== false){
+		while(true){
+			board.drawBoard();
 			if (i%2==0)
 				mark = "x";
 			else 
@@ -25,8 +26,12 @@ public class Main {
 			catch(InvalidPositionException e)
 			{			
 				System.out.print(e.getMessage());	
-			}		
+			}	
+			if (board.hasWinner())
+				break;
 		}
+		board.drawBoard();
 		scanner.close();
+		System.out.print("Spiel zu ende! Gewonnen hat "+ mark);
 	}
 }
